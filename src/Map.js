@@ -13,7 +13,15 @@ class Map extends React.Component{
     }
 
     componentDidMount(){
-        // this.getCoordinates()
+        this.getCoordinates()
+        this.interval = setInterval(this.getCoordinates, 1000)
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.interval)
+    }
+
+    getCoordinates = () => {
         fetch(ISS_URL)
             .then(res => res.json())
             .then(data => this.setState({
@@ -23,12 +31,6 @@ class Map extends React.Component{
                 }
             }))
     }
-
-    // getCoordinates = () => {
-    //     fetch(ISS_URL)
-    //         .then(res => res.json())
-    //         .then(data => console.log(data))
-    // }
 
     render(){
         console.log("LAT:", this.state.center.lat)
