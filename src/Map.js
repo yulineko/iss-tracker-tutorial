@@ -43,7 +43,7 @@ class Map extends React.Component{
         return(
             <div>
                 <p>Latitude: {this.state.center.lat}</p>
-                <p>Longitude: {this.state.center.lng}</p>
+                <p>Longitude: {}</p>
                 <div className = "map" style={{ height: '100vh', width: '100%' }}>
                     <GoogleMapReact className = "map"
                         bootstrapURLKeys={{key: MAP_KEY }}
